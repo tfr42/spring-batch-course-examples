@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<bean id="job.import.product.tasklet.decompressTask" class="net.gfu.seminar.spring.batch.job.step.tasklet.DecompressTasklet"/>
+
+	<bean id="job.import.product.tasklet.verifyTask" class="net.gfu.seminar.spring.batch.job.step.tasklet.VerifyTasklet"/>
+
+	<bean id="job.import.product.tasklet.reportTask" class="net.gfu.seminar.spring.batch.job.step.tasklet.GenerateReportTasklet"/>
+
+	<bean id="job.import.product.tasklet.trackTask" class="net.gfu.seminar.spring.batch.job.step.tasklet.TrackTasklet"/>
+
+	<bean id="job.import.product.tasklet.cleanTask" class="net.gfu.seminar.spring.batch.job.step.tasklet.CleanTasklet"/>
+
+</beans>

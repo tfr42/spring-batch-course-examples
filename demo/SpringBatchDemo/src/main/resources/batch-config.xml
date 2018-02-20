@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:batch="http://www.springframework.org/schema/batch"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	  http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<context:property-placeholder location="classpath:batch-hsql.properties"/>
+
+	<bean id="jobLauncher" class="org.springframework.batch.core.launch.support.SimpleJobLauncher">
+		<property name="jobRepository" ref="jobRepository" />
+	</bean>
+
+	<beans profile="inmemory">
+
+		<bean id="jobRepository" class="org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean">
+			<property name="transactionManager" ref="transactionManager" />
+		</bean>
+
+		<bean id="transactionManager" class="org.springframework.batch.support.transaction.ResourcelessTransactionManager"/>
+	</beans>
+
+	<beans profile="database">
+
+		<batch:job-repository id="jobRepository" data-source="dataSource"
+						transaction-manager="transactionManager" isolation-level-for-create="DEFAULT"/>
+
+		<bean id="dataSource"
+					class="org.apache.commons.dbcp2.BasicDataSource"
+					destroy-method="close">
+			<property name="driverClassName" value="${batch.jdbc.driver}" />
+			<property name="url" value="${batch.jdbc.url}" />
+			<property name="username" value="${batch.jdbc.user}" />
+			<property name="password" value="${batch.jdbc.password}" />
+		</bean>
+
+		<bean id="transactionManager"
+					class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource" />
+		</bean>
+
+	</beans>
+</beans>

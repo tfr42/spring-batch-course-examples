@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd">
+
+	<import resource="batch-job-import-abstract.xml" />
+	<import resource="batch-job-import-decison.xml" />
+	<import resource="batch-job-import-tasklet-chunk.xml" />
+	<import resource="batch-job-import-tasklet.xml" />
+
+	<batch:job id="job.import.product" job-repository="jobRepository"
+		 parent="jobAbstract">
+	</batch:job>
+
+</beans>
