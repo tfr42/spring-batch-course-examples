@@ -10,7 +10,6 @@
     http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
     http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd">
 
-
   <int:channel id="inboundFileChannel"/>
   <int:channel id="outboundJobRequestChannel"/>
   <int:channel id="jobLaunchReplyChannel"/>
@@ -34,4 +33,5 @@
                                    reply-channel="jobLaunchReplyChannel"/>
 
   <int:logging-channel-adapter channel="jobLaunchReplyChannel"/>
+
 </beans>

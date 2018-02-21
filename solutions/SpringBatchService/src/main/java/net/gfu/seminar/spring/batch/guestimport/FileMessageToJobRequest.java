@@ -8,7 +8,8 @@ import org.springframework.batch.integration.launch.JobLaunchRequest;
 import org.springframework.integration.annotation.Transformer;
 
 /**
- * Created by tf on 27.11.14.
+ * Launches a Job and passes a file name as parameter.
+ * Uses Spring Integration.
  */
 public class FileMessageToJobRequest {
     private Job job;

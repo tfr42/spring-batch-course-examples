@@ -18,7 +18,7 @@ public class GuestImportReadListener implements ItemReadListener<Guest>{
 
 	@Override
 	public void onReadError(Exception ex) {
-		System.out.println("Error occured: " + ex.getMessage());
+		System.out.println("Error occurred: " + ex.getMessage());
 		if (ex instanceof FlatFileParseException) {
 			FlatFileParseException ffpe = (FlatFileParseException) ex;
 			System.out.println("Corrupt line: " +ffpe.getLineNumber());

@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 /**
- * Created by tf on 28.11.14.
+ * Reads the Spring Integration configuration from XML file.
  */
 @Configuration
 @ImportResource( "classpath:batch-integration-config.xml")

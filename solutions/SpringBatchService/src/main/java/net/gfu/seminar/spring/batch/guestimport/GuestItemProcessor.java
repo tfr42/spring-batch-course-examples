@@ -12,7 +12,7 @@ public class GuestItemProcessor implements ItemProcessor<Guest, Guest> {
 		final String lastName = guest.getLastName().toUpperCase();
 		final Guest transformedGuest = new Guest(firstName, lastName);
 
-		System.out.println("Converting (" + guest + ") into ("
+		System.out.println("Converted (" + guest + ") into ("
 				+ transformedGuest + ")");
 		
 		if(!hasAllReadyFailed && transformedGuest.getLastName().equalsIgnoreCase("Krachers")) {

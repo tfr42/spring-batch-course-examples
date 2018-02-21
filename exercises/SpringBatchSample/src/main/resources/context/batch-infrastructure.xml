@@ -10,4 +10,6 @@
 		<jdbc:script location="classpath:/org/springframework/batch/core/schema-h2.sql" />
 	</jdbc:initialize-database>
 
+	<!-- TODO JobRepository is missing -->
+
 </beans>

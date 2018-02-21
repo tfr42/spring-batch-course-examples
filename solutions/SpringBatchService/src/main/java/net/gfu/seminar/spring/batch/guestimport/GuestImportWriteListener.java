@@ -21,7 +21,7 @@ public class GuestImportWriteListener implements ItemWriteListener<Guest> {
 
 	@Override
 	public void onWriteError(Exception exception, List<? extends Guest> items) {
-		System.out.println("Error occured: " + exception.getMessage());
+		System.out.println("Error occurred: " + exception.getMessage());
 		for (Iterator iterator = items.iterator(); iterator.hasNext();) {
 			Guest guest = (Guest) iterator.next();
 			System.out.println("Failed to write: " + guest);

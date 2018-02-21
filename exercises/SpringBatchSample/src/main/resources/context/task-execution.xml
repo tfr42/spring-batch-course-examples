@@ -7,6 +7,6 @@
 
 	<task:executor id="taskExecutor" />
 	
-	<task:scheduler id="sytemScheduler" />
+	<task:scheduler id="systemScheduler" />
 
 </beans>

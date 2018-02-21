@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
- * RESTful repository.
+ * A RESTful repository serving Guests.
  */
  @RepositoryRestResource(collectionResourceRel = "guests", path = "guests")
  public interface GuestRepository extends PagingAndSortingRepository<Guest, Long> {

@@ -19,9 +19,9 @@
 		<property name="message" value="World!" />
 	</bean>
 	
-<!-- 
-     Using the Spring Batch Namespace elements
---> 
+	<!--
+     Job Definition using the Spring Batch Namespace elements
+	-->
 	<batch:job id="helloWorldJob" job-repository="jobRepository" restartable="true" >
 		<batch:step id="helloStep" next="spaceStep">
 			<batch:tasklet ref="hello"/>
@@ -36,7 +36,7 @@
  	
 	<!-- 
 	  Definition of the Job using vanilla Spring Bean elements.
-	  This is the Job which is executed by Spring Batch 
+	  The abstract bean defines the defaults for the tasklet steps below.
 	-->  
 	<bean id="taskletStep" abstract="true"
 		class="org.springframework.batch.core.step.tasklet.TaskletStep">
@@ -47,6 +47,7 @@
 	<bean id="simpleJob" class="org.springframework.batch.core.job.SimpleJob">
 		<property name="name" value="simpleJob" />
 		<property name="jobRepository" ref="jobRepository" />
+		<property name="restartable" value="false"/>
 		<property name="steps">
 			<list>
 				<bean parent="taskletStep">
