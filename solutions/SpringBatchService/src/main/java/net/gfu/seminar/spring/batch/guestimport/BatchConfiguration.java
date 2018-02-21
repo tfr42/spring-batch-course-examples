@@ -4,7 +4,7 @@ import javax.sql.DataSource;
 
 import net.gfu.seminar.spring.batch.PrintTasklet;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.batch.core.ItemReadListener;
 import org.springframework.batch.core.ItemWriteListener;
 import org.springframework.batch.core.Job;

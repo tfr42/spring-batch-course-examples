@@ -1,6 +1,6 @@
 package net.gfu.seminar.spring.batch.guestimport;
 
-import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -94,6 +94,7 @@ public class BatchConfiguration {
                 .writer(writer)
                 .build();
     }
+
     /*
     @Bean
     public Step step2(StepBuilderFactory stepBuilderFactory, Tasklet printTasklet) {
@@ -101,8 +102,7 @@ public class BatchConfiguration {
               .tasklet( printTasklet )
               .build();
     }
-    */
-    /*
+
     @Bean
     public Tasklet printTasklet(@Value("#{systemProperties['user.name']}") String user){
         PrintTasklet tasklet = new PrintTasklet();
@@ -119,8 +119,6 @@ public class BatchConfiguration {
     	jobRepositoryFactoryBean.setTransactionManager(transactionManager);
     	return jobRepositoryFactoryBean.getObject();
     }
-    
-    
     
     @Bean
 	public DataSource dataSource() {
